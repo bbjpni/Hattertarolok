@@ -19,23 +19,24 @@ public class Hattertar {
         return this.maxkap;
     }
 
-    public double FoglaltKapacitas(){
-        double szum = 0;
+    public int FoglaltKapacitas(){
+        int szum = 0;
         for (int i = 0; i < this.tartalom.size(); i++) {
-            szum += this.tartalom.get(i).getTartalom().length()/8.0;
+            szum += this.tartalom.get(i).getTartalom().length();
         }
         return szum;
     }
 
-    public double SzabadKapacitas(){ return this.maxkap - FoglaltKapacitas(); }
+    public int SzabadKapacitas(){ return this.maxkap - FoglaltKapacitas(); }
 
     public void Hozzaad(Fajl file){
-        if (this.SzabadKapacitas() >= file.getTartalom().length()/8.0){
+        if (this.SzabadKapacitas() >= file.getTartalom().length()){
             boolean free = true;
             for (Fajl item : this.tartalom) {
                 free = free && !file.getNev().equals(item.getNev());
             }
             if (free){this.tartalom.add(file);}
+            System.out.println(free);
         }
     }
 
@@ -51,4 +52,9 @@ public class Hattertar {
         }
     }
 
+    public void Listaz(boolean x) {
+        for (Fajl item : this.tartalom) {
+            System.out.println(item);
+        }
+    }
 }

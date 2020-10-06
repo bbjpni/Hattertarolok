@@ -1,7 +1,7 @@
 package com.bzsomi;
 
 public class Fajl {
-    public String getNev() { return nev; }
+    public String getNev() { return nev+"."+this.kiterjesztes; }
 
     private String nev;
     private String kiterjesztes;
@@ -25,6 +25,6 @@ public class Fajl {
 
     @Override
     public String toString() {
-        return String.format("%s.%s %.2fbite", nev, kiterjesztes, (meret/8.0));
+        return String.format("%s.%s %d byte", nev, kiterjesztes, (meret));
     }
 }
