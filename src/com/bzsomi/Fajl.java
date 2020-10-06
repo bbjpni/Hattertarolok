@@ -1,6 +1,8 @@
 package com.bzsomi;
 
 public class Fajl {
+    public String getNev() { return nev; }
+
     private String nev;
     private String kiterjesztes;
     private int meret;
